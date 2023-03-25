@@ -1,0 +1,111 @@
+[gd_scene load_steps=14 format=3 uid="uid://2piec1jo1fd3"]
+
+[ext_resource type="Script" path="res://app.gd" id="1_ms3wm"]
+[ext_resource type="Script" path="res://image_box.gd" id="2_2chou"]
+[ext_resource type="Texture2D" uid="uid://dymwepielggqk" path="res://images/placeholder_01.jpeg" id="2_aenad"]
+[ext_resource type="Texture2D" uid="uid://c6qn4f8usrt24" path="res://images/placeholder_02.jpeg" id="4_olnyq"]
+[ext_resource type="Texture2D" uid="uid://bpmf2154bvypr" path="res://images/th-1285192541.jpeg" id="4_ph153"]
+[ext_resource type="Script" path="res://text_list.gd" id="5_hnwtw"]
+[ext_resource type="Texture2D" uid="uid://clgfgm0qmdu06" path="res://images/th-2545144517.jpeg" id="6_2l8pe"]
+[ext_resource type="Script" path="res://audio_player.gd" id="6_6e0ds"]
+[ext_resource type="AudioStream" uid="uid://bwmmqt2faceje" path="res://sounds/prj_1121134_0392f236c44e8a3c408db6aa7a852629_1679768928.mp3" id="8_pasq5"]
+[ext_resource type="AudioStream" uid="uid://dy5yxbhugppho" path="res://sounds/prj_1121142_0392f236c44e8a3c408db6aa7a852629_1679768952.mp3" id="9_kjltn"]
+[ext_resource type="AudioStream" uid="uid://8c0eummvl8ec" path="res://sounds/prj_1121151_0392f236c44e8a3c408db6aa7a852629_1679768969.mp3" id="10_icmc2"]
+[ext_resource type="AudioStream" uid="uid://c3f8x20q4ijm2" path="res://sounds/prj_1121176_0392f236c44e8a3c408db6aa7a852629_1679769011.mp3" id="11_3o0un"]
+[ext_resource type="Texture2D" uid="uid://dnhmovwhl4bd3" path="res://play-icon-vector-illustration.jpg" id="13_qh7gf"]
+
+[node name="App" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ms3wm")
+
+[node name="image_box" type="TextureRect" parent="."]
+layout_mode = 1
+offset_right = 720.0
+offset_bottom = 500.0
+size_flags_vertical = 3
+texture = ExtResource("2_aenad")
+expand_mode = 2
+stretch_mode = 6
+script = ExtResource("2_2chou")
+images = Array[CompressedTexture2D]([ExtResource("2_aenad"), ExtResource("4_ph153"), ExtResource("4_olnyq"), ExtResource("6_2l8pe")])
+
+[node name="text_list" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.00139
+anchor_bottom = 1.00078
+offset_top = -780.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("5_hnwtw")
+base_color = Color(0.419608, 0.419608, 0.419608, 1)
+highlight_color = Color(1, 1, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="TextEdit" type="TextEdit" parent="text_list"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.419608, 0.419608, 0.419608, 1)
+theme_override_font_sizes/font_size = 36
+text = "This is a description of an image."
+wrap_mode = 1
+
+[node name="TextEdit2" type="TextEdit" parent="text_list"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.419608, 0.419608, 0.419608, 1)
+theme_override_font_sizes/font_size = 36
+text = "This is a second set of text that shows other words"
+wrap_mode = 1
+
+[node name="TextEdit3" type="TextEdit" parent="text_list"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.419608, 0.419608, 0.419608, 1)
+theme_override_font_sizes/font_size = 36
+text = "Here is a third thing that we care about deeply"
+wrap_mode = 1
+
+[node name="TextEdit4" type="TextEdit" parent="text_list"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.419608, 0.419608, 0.419608, 1)
+theme_override_font_sizes/font_size = 36
+text = "This is a start on the prototype you're hoping to build"
+wrap_mode = 1
+
+[node name="audio_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_pasq5")
+script = ExtResource("6_6e0ds")
+tracks = Array[AudioStreamMP3]([ExtResource("8_pasq5"), ExtResource("9_kjltn"), ExtResource("10_icmc2"), ExtResource("11_3o0un")])
+
+[node name="play_button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0.517647)
+layout_mode = 1
+offset_left = 596.0
+offset_top = 379.0
+offset_right = 696.0
+offset_bottom = 479.0
+toggle_mode = true
+icon = ExtResource("13_qh7gf")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="index_updated" from="." to="image_box" method="_on_app_index_updated"]
+[connection signal="index_updated" from="." to="text_list" method="_on_app_index_updated"]
+[connection signal="index_updated" from="." to="audio_player" method="_on_app_index_updated"]
+[connection signal="last_index_reached" from="text_list" to="." method="_on_text_list_last_index_reached"]
+[connection signal="finished" from="audio_player" to="." method="_on_audio_player_finished"]
+[connection signal="toggled" from="play_button" to="." method="_on_play_button_toggled"]
+[connection signal="toggled" from="play_button" to="audio_player" method="_on_play_button_toggled"]
