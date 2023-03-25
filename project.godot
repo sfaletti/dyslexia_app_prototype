@@ -26,6 +26,10 @@ window/size/viewport_height=1280
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
+[editor]
+
+movie_writer/movie_file="/Users/stevefaletti/Development/dyslexia_prototype/demo_video.avi"
+
 [rendering]
 
 renderer/rendering_method="mobile"
