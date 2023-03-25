@@ -1,18 +1,18 @@
 [gd_scene load_steps=14 format=3 uid="uid://2piec1jo1fd3"]
 
-[ext_resource type="Script" path="res://app.gd" id="1_ms3wm"]
-[ext_resource type="Script" path="res://image_box.gd" id="2_2chou"]
-[ext_resource type="Texture2D" uid="uid://dymwepielggqk" path="res://images/placeholder_01.jpeg" id="2_aenad"]
-[ext_resource type="Texture2D" uid="uid://c6qn4f8usrt24" path="res://images/placeholder_02.jpeg" id="4_olnyq"]
-[ext_resource type="Texture2D" uid="uid://bpmf2154bvypr" path="res://images/th-1285192541.jpeg" id="4_ph153"]
-[ext_resource type="Script" path="res://text_list.gd" id="5_hnwtw"]
-[ext_resource type="Texture2D" uid="uid://clgfgm0qmdu06" path="res://images/th-2545144517.jpeg" id="6_2l8pe"]
-[ext_resource type="Script" path="res://audio_player.gd" id="6_6e0ds"]
-[ext_resource type="AudioStream" uid="uid://bwmmqt2faceje" path="res://sounds/prj_1121134_0392f236c44e8a3c408db6aa7a852629_1679768928.mp3" id="8_pasq5"]
-[ext_resource type="AudioStream" uid="uid://dy5yxbhugppho" path="res://sounds/prj_1121142_0392f236c44e8a3c408db6aa7a852629_1679768952.mp3" id="9_kjltn"]
-[ext_resource type="AudioStream" uid="uid://8c0eummvl8ec" path="res://sounds/prj_1121151_0392f236c44e8a3c408db6aa7a852629_1679768969.mp3" id="10_icmc2"]
-[ext_resource type="AudioStream" uid="uid://c3f8x20q4ijm2" path="res://sounds/prj_1121176_0392f236c44e8a3c408db6aa7a852629_1679769011.mp3" id="11_3o0un"]
-[ext_resource type="Texture2D" uid="uid://dnhmovwhl4bd3" path="res://play-icon-vector-illustration.jpg" id="13_qh7gf"]
+[ext_resource type="Script" path="res://app.gd" id="1_a1w2d"]
+[ext_resource type="Texture2D" uid="uid://dymwepielggqk" path="res://images/placeholder_01.jpeg" id="2_daxux"]
+[ext_resource type="Script" path="res://image_box.gd" id="3_555so"]
+[ext_resource type="Texture2D" uid="uid://bpmf2154bvypr" path="res://images/th-1285192541.jpeg" id="4_wl2lx"]
+[ext_resource type="Texture2D" uid="uid://c6qn4f8usrt24" path="res://images/placeholder_02.jpeg" id="5_kasx3"]
+[ext_resource type="Texture2D" uid="uid://clgfgm0qmdu06" path="res://images/th-2545144517.jpeg" id="6_6d5pe"]
+[ext_resource type="Script" path="res://text_list.gd" id="7_ar4xu"]
+[ext_resource type="AudioStream" uid="uid://bwmmqt2faceje" path="res://sounds/prj_1121134_0392f236c44e8a3c408db6aa7a852629_1679768928.mp3" id="8_dvsfx"]
+[ext_resource type="Script" path="res://audio_player.gd" id="9_pnpuh"]
+[ext_resource type="AudioStream" uid="uid://dy5yxbhugppho" path="res://sounds/prj_1121142_0392f236c44e8a3c408db6aa7a852629_1679768952.mp3" id="10_hbgdg"]
+[ext_resource type="AudioStream" uid="uid://8c0eummvl8ec" path="res://sounds/prj_1121151_0392f236c44e8a3c408db6aa7a852629_1679768969.mp3" id="11_cbrs7"]
+[ext_resource type="AudioStream" uid="uid://c3f8x20q4ijm2" path="res://sounds/prj_1121176_0392f236c44e8a3c408db6aa7a852629_1679769011.mp3" id="12_rwkbh"]
+[ext_resource type="Texture2D" uid="uid://dnhmovwhl4bd3" path="res://play-icon-vector-illustration.jpg" id="13_5iwvq"]
 
 [node name="App" type="Control"]
 layout_mode = 3
@@ -23,18 +23,18 @@ offset_left = 1.0
 offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ms3wm")
+script = ExtResource("1_a1w2d")
 
 [node name="image_box" type="TextureRect" parent="."]
 layout_mode = 1
 offset_right = 720.0
 offset_bottom = 500.0
 size_flags_vertical = 3
-texture = ExtResource("2_aenad")
+texture = ExtResource("2_daxux")
 expand_mode = 2
 stretch_mode = 6
-script = ExtResource("2_2chou")
-images = Array[CompressedTexture2D]([ExtResource("2_aenad"), ExtResource("4_ph153"), ExtResource("4_olnyq"), ExtResource("6_2l8pe")])
+script = ExtResource("3_555so")
+images = Array[CompressedTexture2D]([ExtResource("2_daxux"), ExtResource("4_wl2lx"), ExtResource("5_kasx3"), ExtResource("6_6d5pe")])
 
 [node name="text_list" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -47,7 +47,7 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("5_hnwtw")
+script = ExtResource("7_ar4xu")
 base_color = Color(0.419608, 0.419608, 0.419608, 1)
 highlight_color = Color(1, 1, 1, 1)
 metadata/_edit_use_anchors_ = true
@@ -85,9 +85,9 @@ text = "This is a start on the prototype you're hoping to build"
 wrap_mode = 1
 
 [node name="audio_player" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_pasq5")
-script = ExtResource("6_6e0ds")
-tracks = Array[AudioStreamMP3]([ExtResource("8_pasq5"), ExtResource("9_kjltn"), ExtResource("10_icmc2"), ExtResource("11_3o0un")])
+stream = ExtResource("8_dvsfx")
+script = ExtResource("9_pnpuh")
+tracks = Array[AudioStreamMP3]([ExtResource("8_dvsfx"), ExtResource("10_hbgdg"), ExtResource("11_cbrs7"), ExtResource("12_rwkbh")])
 
 [node name="play_button" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0.517647)
@@ -97,7 +97,7 @@ offset_top = 379.0
 offset_right = 696.0
 offset_bottom = 479.0
 toggle_mode = true
-icon = ExtResource("13_qh7gf")
+icon = ExtResource("13_5iwvq")
 flat = true
 icon_alignment = 1
 expand_icon = true

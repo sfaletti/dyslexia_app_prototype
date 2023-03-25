@@ -8,5 +8,5 @@ This is a quick and dirty version of your concept, build in a  game engine calle
 2. Download & install [Godot](https://godotengine.org)
 3. Unzip the project repo and add it to the project manager in Godot
 4. Open main application file, `App.tscn`, in the Godot editor and poke around it
-5. Preview it by pressing `CMD-R`
+5. Preview it by pressing `CMD-R` or `CMD-B`
 6. We can discuss this more in our next meeting, or over Slack
